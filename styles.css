@@ -47,14 +47,15 @@ body::before {
 .container {
     position: relative;
     z-index: 1;
-    background: rgba(0, 0, 0, 0.8);
+    background: rgba(0, 0, 0, 0.9);
     border-radius: 20px;
     padding: 40px;
     width: 90%;
     max-width: 800px;
-    border: 2px solid transparent;
+    border: 4px solid;
+    border-image: linear-gradient(45deg, #6EE7B7, #3B82F6, #9333EA, #F43F5E) 1;
     background-clip: padding-box;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.7);
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.8);
     text-align: center;
     animation: fadeIn 1s ease-in-out;
 }
@@ -73,9 +74,9 @@ h1 {
     border: 4px solid white;
     margin-bottom: 20px;
     object-fit: cover;
-    /* Hapus semua filter agar natural */
+    /* Tetap natural tanpa efek/filter */
     filter: none;
-}
+    transition: transform 0.3s ease;
 }
 
 .logo:hover {
@@ -91,20 +92,21 @@ h1 {
 }
 
 .payment-card {
-    background: rgba(0, 0, 0, 0.6);
+    position: relative;
+    background: rgba(0, 0, 0, 0.85);
     border-radius: 15px;
     padding: 20px;
     width: 220px;
     transition: all 0.3s ease;
-    border: 2px solid;
+    border: 3px solid;
     border-image: linear-gradient(45deg, #6EE7B7, #3B82F6, #9333EA, #F43F5E) 1;
     color: #fff;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.7);
 }
 
 .payment-card:hover {
     transform: translateY(-5px);
-    background: rgba(0, 0, 0, 0.8);
-    box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
+    background: rgba(0, 0, 0, 0.95);
 }
 
 .payment-icon {
@@ -143,7 +145,8 @@ h1 {
 .qris-section {
     margin-top: 40px;
     padding-top: 30px;
-    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    border-top: 2px solid;
+    border-image: linear-gradient(45deg, #6EE7B7, #3B82F6, #9333EA, #F43F5E) 1;
 }
 
 .qris-title {
@@ -155,7 +158,7 @@ h1 {
     max-width: 250px;
     border-radius: 15px;
     margin: 0 auto;
-    border: 2px solid;
+    border: 3px solid;
     border-image: linear-gradient(45deg, #6EE7B7, #3B82F6, #9333EA, #F43F5E) 1;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
     transition: transform 0.3s ease;
