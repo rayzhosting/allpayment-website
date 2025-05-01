@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Rayz Official - Pembayaran</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"/>
+  <style>
+    * {
+      margin: 0; padding: 0; box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background-image: url('https://files.catbox.moe/icvznl.png');
+      background-size: cover; background-position: center; background-attachment: fixed;
+      color: #fff; min-height: 100vh; display: flex; justify-content: center; align-items: center;
+      position: relative;
+    }
+
+    body::before {
+      content: ''; position: absolute; top: 0; left: 0;
+      width: 100%; height: 100%;
+      background-color: rgba(0, 0, 0, 0.7);
+      z-index: 0;
+    }
+
+    .container {
+      position: relative; z-index: 1;
+      background-color: rgba(255, 255, 255, 0.1); backdrop-filter: blur(10px);
+      border-radius: 20px; padding: 40px; width: 90%; max-width: 800px;
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5); border: 1px solid rgba(255, 255, 255, 0.1);
+      text-align: center; animation: fadeIn 1s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    h1 {
+      font-size: 2.5rem; margin-bottom: 20px;
+      color: #fff; text-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    }
+
+    .logo {
+      width: 120px; height: 120px; margin: 0 auto 20px;
+      border-radius: 50%; overflow: hidden;
+      border: 3px solid #fff; box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    .logo img {
+      width: 100%; height: 100%; object-fit: cover;
+    }
+
+    .payment-methods {
+      display: flex; flex-wrap: wrap; justify-content: center; gap: 20px;
+      margin: 30px 0;
+    }
+
+    .payment-card {
+      background: rgba(255, 255, 255, 0.1); border-radius: 15px;
+      padding: 20px; width: 220px;
+      transition: all 0.3s ease;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      position: relative;
+    }
+
+    .payment-card:hover {
+      transform: translateY(-5px);
+      background: rgba(255, 255, 255, 0.2);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    .payment-icon {
+      font-size: 2.5rem; margin-bottom: 15px; color: #fff;
+    }
+
+    .payment-name {
+      font-weight: 600; margin-bottom: 10px; font-size: 1.2rem;
+    }
+
+    .payment-number {
+      background: rgba(0, 0, 0, 0.3);
+      padding: 8px 15px; border-radius: 10px;
+      font-family: monospace; font-size: 1rem;
+      word-break: break-word;
+    }
+
+    .copy-button {
+      margin-top: 10px; background: #ffffff22; color: #fff;
+      border: none; padding: 6px 12px; border-radius: 8px;
+      cursor: pointer; font-size: 0.9rem; transition: background 0.3s ease;
+      display: inline-flex; align-items: center; gap: 6px;
+    }
+
+    .copy-button:hover {
+      background: #ffffff44;
+    }
+
+    .qris-section {
+      margin-top: 40px; padding-top: 30px;
+      border-top: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .qris-title {
+      font-size: 1.5rem; margin-bottom: 20px;
+    }
+
+    .qris-image {
+      max-width: 250px; border-radius: 15px; margin: 0 auto;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+      transition: transform 0.3s ease;
+    }
+
+    .qris-image:hover {
+      transform: scale(1.05);
+    }
+
+    .note {
+      margin-top: 30px; font-size: 0.9rem;
+      color: rgba(255, 255, 255, 0.8);
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        padding: 30px 20px; width: 95%;
+      }
+
+      h1 {
+        font-size: 2rem;
+      }
+
+      .payment-methods {
+        flex-direction: column; align-items: center;
+      }
+
+      .payment-card {
+        width: 100%; max-width: 300px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="logo">
+      <img src="https://files.catbox.moe/icvznl.png" alt="Rayz Official Logo"/>
+    </div>
+
+    <h1>Metode Pembayaran</h1>
+
+    <div class="payment-methods">
+      <div class="payment-card">
+        <div class="payment-icon"><i class="fas fa-wallet"></i></div>
+        <div class="payment-name">DANA</div>
+        <div class="payment-number" id="dana-number">085602574511</div>
+        <button class="copy-button" onclick="copyToClipboard('dana-number')">
+          <i class="fas fa-copy"></i> Salin
+        </button>
+      </div>
+
+      <div class="payment-card">
+        <div class="payment-icon"><i class="fab fa-google-pay"></i></div>
+        <div class="payment-name">GOPAY</div>
+        <div class="payment-number" id="gopay-number">085602574511</div>
+        <button class="copy-button" onclick="copyToClipboard('gopay-number')">
+          <i class="fas fa-copy"></i> Salin
+        </button>
+      </div>
+
+      <div class="payment-card">
+        <div class="payment-icon"><i class="fas fa-mobile-alt"></i></div>
+        <div class="payment-name">OVO</div>
+        <div class="payment-number" id="ovo-number">0857*****</div>
+        <button class="copy-button" onclick="copyToClipboard('ovo-number')">
+          <i class="fas fa-copy"></i> Salin
+        </button>
+      </div>
+    </div>
+
+    <div class="qris-section">
+      <div class="qris-title">Atau Scan QRIS</div>
+      <img src="https://files.catbox.moe/p1725x.png" alt="QRIS Payment" class="qris-image"/>
+      <div class="note">
+        <p>Setelah melakukan pembayaran, harap konfirmasi dengan mengirimkan bukti transfer ke admin.</p>
+        <p>Terima kasih telah berbelanja di Rayz Official!</p>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function copyToClipboard(id) {
+      const text = document.getElementById(id).innerText;
+      navigator.clipboard.writeText(text).then(() => {
+        alert("Nomor berhasil disalin: " + text);
+      }).catch(err => {
+        alert("Gagal menyalin: " + err);
+      });
+    }
+  </script>
+</body>
+</html>
