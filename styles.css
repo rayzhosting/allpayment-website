@@ -15,6 +15,7 @@ body {
     align-items: center;
     position: relative;
     overflow: hidden;
+    color: #fff;
 }
 
 body::before {
@@ -25,20 +26,20 @@ body::before {
     width: 200%;
     height: 200%;
     background: conic-gradient(
-        from 0deg,
         #ff6ec4,
         #7873f5,
-        #4adede,
-        #7affab,
+        #4ade80,
+        #60a5fa,
+        #facc15,
+        #f472b6,
         #ff6ec4
     );
-    animation: spin 15s linear infinite;
+    animation: rotate 10s linear infinite;
     z-index: 0;
-    filter: blur(100px);
-    opacity: 0.7;
+    opacity: 0.3;
 }
 
-@keyframes spin {
+@keyframes rotate {
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
 }
@@ -47,27 +48,22 @@ body::before {
     position: relative;
     z-index: 1;
     background: rgba(0, 0, 0, 0.8);
-    backdrop-filter: blur(10px);
     border-radius: 20px;
     padding: 40px;
     width: 90%;
     max-width: 800px;
-    box-shadow: 0 0 30px rgba(255, 255, 255, 0.05);
+    border: 2px solid transparent;
+    background-clip: padding-box;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.7);
     text-align: center;
-    border: 1px solid rgba(255, 255, 255, 0.1);
     animation: fadeIn 1s ease-in-out;
-}
-
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
 }
 
 h1 {
     font-size: 2.5rem;
     margin-bottom: 20px;
     color: #fff;
-    text-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
 }
 
 .logo {
@@ -77,7 +73,12 @@ h1 {
     border-radius: 50%;
     overflow: hidden;
     border: 3px solid #fff;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.logo:hover {
+    transform: scale(1.05);
 }
 
 .payment-methods {
@@ -89,37 +90,37 @@ h1 {
 }
 
 .payment-card {
-    background: rgba(255, 255, 255, 0.05);
+    background: rgba(0, 0, 0, 0.6);
     border-radius: 15px;
     padding: 20px;
     width: 220px;
     transition: all 0.3s ease;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    position: relative;
+    border: 2px solid;
+    border-image: linear-gradient(45deg, #6EE7B7, #3B82F6, #9333EA, #F43F5E) 1;
+    color: #fff;
 }
 
 .payment-card:hover {
     transform: translateY(-5px);
-    background: rgba(255, 255, 255, 0.1);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+    background: rgba(0, 0, 0, 0.8);
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
 }
 
 .payment-icon {
     font-size: 2.5rem;
     margin-bottom: 15px;
-    color: #fff;
-    transition: transform 0.3s ease;
+    color: #60a5fa;
+    transition: color 0.3s ease;
 }
 
 .payment-card:hover .payment-icon {
-    transform: rotate(10deg) scale(1.1);
+    color: #9333ea;
 }
 
 .payment-name {
     font-weight: 600;
     margin-bottom: 10px;
     font-size: 1.2rem;
-    color: #fff;
 }
 
 .payment-number {
@@ -129,24 +130,13 @@ h1 {
     font-family: monospace;
     font-size: 1rem;
     word-break: break-word;
-    color: #fff;
-}
-
-.copy-btn {
-    margin-top: 15px;
-    padding: 8px 15px;
-    background: linear-gradient(45deg, #7b2ff7, #f107a3);
-    border: none;
-    border-radius: 8px;
-    color: #fff;
     cursor: pointer;
-    font-weight: 600;
-    transition: background 0.3s ease, transform 0.3s ease;
+    user-select: all;
+    transition: background 0.3s ease;
 }
 
-.copy-btn:hover {
-    background: linear-gradient(45deg, #5f1ec2, #c70085);
-    transform: scale(1.05);
+.payment-number:hover {
+    background: rgba(255, 255, 255, 0.2);
 }
 
 .qris-section {
@@ -158,15 +148,15 @@ h1 {
 .qris-title {
     font-size: 1.5rem;
     margin-bottom: 20px;
-    color: #fff;
 }
 
 .qris-image {
     max-width: 250px;
     border-radius: 15px;
     margin: 0 auto;
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+    border: 2px solid;
+    border-image: linear-gradient(45deg, #6EE7B7, #3B82F6, #9333EA, #F43F5E) 1;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
     transition: transform 0.3s ease;
 }
 
@@ -180,9 +170,15 @@ h1 {
     color: rgba(255, 255, 255, 0.8);
 }
 
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
 @media (max-width: 768px) {
     .container {
         padding: 30px 20px;
+        width: 95%;
     }
 
     h1 {
